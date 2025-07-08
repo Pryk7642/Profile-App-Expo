@@ -25,7 +25,7 @@ const Home = () => {
         href="/about"
         style={[styles.button, { backgroundColor: colors.primary }]}
       >
-        <Text style={[styles.buttonText, { color: colors.buttext }]}>Go to About Page</Text>
+        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻Go to About Page👈🏻</Text>
       </Link>
       <View style={styles.section}>
         <Text style={[styles.sectionHeader, { color: colors.text }]}>📧 Contact Info</Text>
