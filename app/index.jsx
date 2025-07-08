@@ -1,32 +1,51 @@
 import { StyleSheet, Text, View, Image } from "react-native";
+import { Link } from "expo-router";
+import { useTheme } from "./context/ThemeContext";
 
 const Home = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.protit}>Profile App</Text>
-      <Image source={require("../assets/ggez.jpg")} style={styles.profile} />
-      <Text style={styles.title}>Phiriyakorn Phanphanich</Text>
-      <Text style={styles.number}>Student No. 653450098-0</Text>
-      <Text style={styles.subtitle}>Computer and Information Science</Text>
-      <Text style={styles.text}>Khon Kaen University</Text>
+  const { colors, isDarkMode } = useTheme();
 
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* <Text style={[styles.protit, { color: colors.text }]}>Profile App</Text> */}
+      <Image
+        source={
+          isDarkMode
+          ? require("../assets/ezgg.jpg")
+          : require("../assets/ggez.jpg")
+        }
+        style={[styles.profile, { borderColor: colors.profileBorder }]}
+      />
+      <Text style={[styles.title, { color: colors.text }]}>Phiriyakorn Phanphanich</Text>
+      <Text style={[styles.number, { color: colors.textSecondary }]}>Student No. 653450098-0</Text>
+      <Text style={[styles.subtitle, { color: colors.primary }]}>Computer and Information Science</Text>
+      <Text style={[styles.text, { color: colors.textSecondary }]}>Khon Kaen University Nong Khai Campus</Text>
+
+      <Link
+        href="/about"
+        style={[styles.button, { backgroundColor: colors.primary }]}
+      >
+        <Text style={[styles.buttonText, { color: colors.buttext }]}>Go to About Page</Text>
+      </Link>
       <View style={styles.section}>
-        <Text style={styles.sectionHeader}>📧 Contact Info</Text>
-        <Text style={styles.sectionText}>Email: phiriyakorn.p@kkumail.com</Text>
+        <Text style={[styles.sectionHeader, { color: colors.text }]}>📧 Contact Info</Text>
+        <Text style={[styles.sectionText, { color: colors.textSecondary }]}>Email: phiriyakorn.p@kkumail.com</Text>
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.sectionHeader}>💡 Skills</Text>
-        <Text style={styles.sectionText}>📷 Camera | 🎮 Gaming | 📹 Live Streaming</Text>
+        <Text style={[styles.sectionHeader, { color: colors.text }]}>💡 Skills</Text>
+        <Text style={[styles.sectionText, { color: colors.textSecondary }]}>📷 Camera | 🎮 Gaming | 📹 Live Streaming</Text>
       </View>
     </View>
+    
   );
 };
 
-const styles = StyleSheet.create({
+
+
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d3d3d3",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -34,7 +53,6 @@ const styles = StyleSheet.create({
   protit: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#e53935",
     marginBottom: 80,
     textTransform: "uppercase",
     letterSpacing: 2,
@@ -45,12 +63,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginBottom: 20,
     borderWidth: 3,
-    borderColor: "#ff9800",
+    // borderColor: "#ff9800",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#333",
     marginBottom: 6,
   },
   number: {
@@ -60,7 +77,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     fontWeight: "500",
-    color: "#4a90e2",
     marginBottom: 2,
   },
   text: {
@@ -73,12 +89,16 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
     marginBottom: 8,
   },
   sectionText: {
     fontSize: 16,
-    color: "#555",
+  },
+  button: {
+    marginTop: 20,
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
   },
 });
 
