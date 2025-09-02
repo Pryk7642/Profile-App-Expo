@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import { useTheme } from "./context/ThemeContext";
 
@@ -7,12 +7,11 @@ const Home = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* <Text style={[styles.protit, { color: colors.text }]}>Profile App</Text> */}
       <Image
         source={
           isDarkMode
-          ? require("../assets/ezgg.jpg")
-          : require("../assets/ggez.jpg")
+            ? require("../assets/ezgg.jpg")
+            : require("../assets/ggez.jpg")
         }
         style={[styles.profile, { borderColor: colors.profileBorder }]}
       />
@@ -21,12 +20,20 @@ const Home = () => {
       <Text style={[styles.subtitle, { color: colors.primary }]}>Computer and Information Science</Text>
       <Text style={[styles.text, { color: colors.textSecondary }]}>Khon Kaen University Nong Khai Campus</Text>
 
+      {/* About */}
       <Link
         href="/about"
-        style={[styles.button, { backgroundColor: colors.primary }]}
-      >
+        style={[styles.button, { backgroundColor: colors.primary }]}>
         <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻Go to About Page👈🏻</Text>
       </Link>
+
+      <Link
+        href="/books"
+        style={[styles.button, { backgroundColor: colors.primary }]}>
+        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻Go to Books Page👈🏻</Text>
+      </Link>
+
+
       <View style={styles.section}>
         <Text style={[styles.sectionHeader, { color: colors.text }]}>📧 Contact Info</Text>
         <Text style={[styles.sectionText, { color: colors.textSecondary }]}>Email: phiriyakorn.p@kkumail.com</Text>
@@ -37,10 +44,8 @@ const Home = () => {
         <Text style={[styles.sectionText, { color: colors.textSecondary }]}>📷 Camera | 🎮 Gaming | 📹 Live Streaming</Text>
       </View>
     </View>
-    
   );
 };
-
 
 
 export const styles = StyleSheet.create({
@@ -99,6 +104,10 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
 
