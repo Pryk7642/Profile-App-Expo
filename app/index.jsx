@@ -24,13 +24,13 @@ const Home = () => {
       <Link
         href="/about"
         style={[styles.button, { backgroundColor: colors.primary }]}>
-        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻Go to About Page👈🏻</Text>
+        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻 Go to About Page 👈🏻</Text>
       </Link>
 
       <Link
         href="/books"
         style={[styles.button, { backgroundColor: colors.primary }]}>
-        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻Go to Books Page👈🏻</Text>
+        <Text style={[styles.buttonText, { color: colors.buttext }]}>👉🏻 Go to Books Page 👈🏻</Text>
       </Link>
 
 
